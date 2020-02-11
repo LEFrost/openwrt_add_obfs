@@ -20,7 +20,7 @@ o:depends("type", "ss")
 -- o.rmempty = false~~
 
 3. 写入文件
-在/etc/init.d/shadowsocksr文件中，加入代码，**划去部分不需要加入**，或者下载shadowsocksr直接替换
+在/etc/init.d/shadowsocksr文件中，加入代码，**划去部分不需要加入**，或者下载shadowsocksr直接替换，替换后需要为/etc/init.d/shadowsocksr赋予运行权限，即 运行`chmod +x /etc/init.d/shadowsocksr`
 ~~if [ "\$stype" == "ss" ] ;then
 cat <<-EOF >\$config_file
 {
