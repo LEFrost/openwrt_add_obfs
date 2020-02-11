@@ -1,4 +1,4 @@
-#常规方法
+###常规方法
 1. 下载插件
 下载[simple-obfs](http://openwrt-dist.sourceforge.net/packages/base/x86_64/simple-obfs_0.0.5-4_x86_64.ipk)并安装(这里提供的是x86_64版本，[其他版本](http://openwrt-dist.sourceforge.net/packages/base/)选择对应版本cpu，下载simple-obfs_*****.ipk>)
 2. 解析文本
@@ -40,4 +40,16 @@ local plugin=$(uci_get_by_name $1 plugin)
 if [ -n "$plugin" -a -x "/usr/bin/$plugin" ]; then
     sed -i "s@$hostip\",@$hostip\",\n    \"plugin\": \"$plugin\",\n    \"plugin_opts\": \"$(uci_get_by_name $1 plugin_opts)\",@" $config_file
 fi
+```
+###使用脚本
+下载install-obfs.sh并上传到路由器，进入上传目录，执行以下代码
+```
+chmod +x /tmp/upload/install-obfs.sh
+sh /tmp/upload/install-obfs.sh
+```
+也可以使用wget
+```
+wget https://raw.githubusercontent.com/LEFrost/openwrt_add_obfs/master/install-obfs.sh
+chmod +x install-obfs.sh
+sh ./install-obfs.sh
 ```
